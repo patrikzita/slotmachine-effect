@@ -1,0 +1,131 @@
+.slot-machine {
+    width: 100%;
+    background-color: $clr-primary;
+
+    .container {
+        height: 100vh;
+        display: flex;
+        // border: 1px solid red;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+}
+
+.headline {
+    background-color: $clr-bcg-moving-headline;
+    color: rgb(247, 194, 95);
+    padding: .2rem;
+    max-width: 20rem;
+
+    .headline-wrapper {
+        padding: .2rem;
+        background-color: #344151;
+        overflow: hidden;
+        box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.582);
+
+        h1 {
+            display: inline-block;
+            position: relative;
+            left: 0px;
+            font-size: 2.3rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+            animation: move 5s infinite linear;
+            letter-spacing: 5px;
+        }
+    }
+}
+
+.reels {
+    display: flex;
+    gap: 1rem;
+
+    .reel {
+        height: 100px;
+        width: 100px;
+        font-size: 2rem;
+        background-color: gray;
+        border: 4px solid $clr-black;
+        border-radius: .8rem;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        line-height: 100px;
+
+        .reel-container {
+            position: absolute;
+            top: 0px;
+            transition: top 1s ease-in-out;
+
+            span {
+                height: 100px;
+                width: 96px;
+                display: block;
+            }
+        }
+    }
+
+    .winning-line {
+        position: absolute;
+        // visibility: hidden;
+        height: 10px;
+        width: 332px;
+        top: 51%;
+        background-color: rgba(255, 0, 0, 0.815);
+        animation: winLine 1s infinite;
+
+    }
+}
+.button-container {}
+
+.blinking {
+    animation: blinkingText 1s infinite;
+}
+
+
+@keyframes move {
+    from {
+        left: 25rem;
+    }
+
+    to {
+        left: -42rem;
+    }
+}
+
+@keyframes blinkingText {
+    0% {
+        color: $clr-white;
+    }
+
+    25% {
+        color: transparent;
+
+    }
+
+    50% {
+        color: transparent;
+
+    }
+
+    100% {
+        color: $clr-white;
+    }
+}
+
+@keyframes winLine {
+    0% {
+        opacity: 0
+    }
+
+    49% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+}
